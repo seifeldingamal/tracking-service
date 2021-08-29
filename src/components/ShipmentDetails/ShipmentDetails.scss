@@ -1,0 +1,59 @@
+.details-container {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+        padding-block: 1em;
+    }
+
+    @media screen and (max-width: 925px) {
+        flex-direction: column;
+    }
+
+    .details {
+        width: 68%;
+
+        @media screen and (max-width: 925px) {
+            width: 100%;
+        }
+
+        table {
+            overflow-x: auto;
+            width: 100%;
+            border: 1px solid #f1f1f1;
+            border-radius: 8px;
+
+            thead {
+                color: #726f6f;
+            }
+
+            tbody {
+                font-weight: 700;
+            }
+
+            th,td {
+                text-align: right;
+                padding: 1em;
+            }
+
+            th {
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: #f1f1f1;
+            }
+        }
+    }
+
+    .address {
+        width: 30%;
+
+        @media screen and (max-width: 925px) {
+            width: 100%;
+        }
+
+        p {
+            font-weight: 600;
+            padding: 1rem;
+        }
+    }
+}

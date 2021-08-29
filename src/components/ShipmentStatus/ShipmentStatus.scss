@@ -1,0 +1,28 @@
+.ship-status {
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #f1f1f1;
+        padding: 1em;
+        
+        @media screen and (max-width: 925px) {
+            flex-direction: column;
+        }
+
+        ul {
+            list-style: none;
+            font-size: 1rem;
+            padding-inline: 1em;
+
+            :last-child {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
