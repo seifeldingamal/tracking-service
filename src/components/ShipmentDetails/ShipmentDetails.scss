@@ -18,7 +18,9 @@
         }
 
         table {
-            overflow-x: auto;
+            display: block;
+            overflow: auto;
+            max-height: 30rem;
             width: 100%;
             border: 1px solid #f1f1f1;
             border-radius: 8px;
@@ -28,12 +30,17 @@
             }
 
             tbody {
+                font-size: 1rem;
                 font-weight: 700;
+
+                @media screen and (max-width: 925px) {
+                    font-size: 0.8rem;
+                }
             }
 
             th,td {
                 text-align: right;
-                padding: 1em;
+                padding: 1.2em 2em;
             }
 
             th {

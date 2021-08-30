@@ -1,7 +1,10 @@
 import React from 'react'
+import { stateColor, statesArabic } from '../../ults'
 import './ShipmentDetails.scss'
 
-const ShipmentDetails = () => {
+const ShipmentDetails = ({ transitEvents }) => {
+    const hub = transitEvents.filter( event => event.hub)
+    const location = hub.length > 0 ? hub[0].hub : 'غير محدد'
     return (
         <div className='details-container'>
             <div className='details'>
@@ -16,30 +19,23 @@ const ShipmentDetails = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>3</td>
-                            <td>2</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>5</td>
-                            <td>5</td>
-                            <td>5</td>
-                        </tr>
+                        {
+                            transitEvents.map((data, index) => 
+                                <tr key={index}>
+                                    <td>{location}</td>
+                                    <td>{`${new Date(data.timestamp).getDay()}/${new Date(data.timestamp).getMonth()}/${new Date(data.timestamp).getFullYear()}`}</td>
+                                    <td style={{direction: 'ltr'}}>{new Date(data.timestamp).toLocaleString('en-US', { hour: 'numeric', hour12: true })}</td>
+                                    <td>{statesArabic[0][data.state]}<br/>{ data.reason ? <p style={{color: stateColor(data.state), fontSize: '0.8rem'}}>{data.reason}</p> : ''}</td>
+                                </tr>
+                            )
+                        }
+
                     </tbody>
                 </table>
             </div>
             <div className='address'>
                 <h3>عنوان التسليم</h3>
-                <p>وصّل منتجاتك أسرع وأوفر مع بوسطة لأي مكان في مصر بأقل سعر ومجهود وتابع تحركات الشحن والمندوب أول بأول من غير تأخير ولا تعب في الفواتير</p>
+                <p>قد إبّان واشتدّت لبولندا، شيء, وقد عل يعبأ ألمّ السيطرة, عل وقد المتّبعة الإتفاقية. قام أم ومضى الأخذ الأولى, أسيا غريمه بأيدي لها ٣٠ أن.</p>
             </div>
         </div>
     )

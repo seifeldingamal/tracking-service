@@ -20,7 +20,7 @@ class Header extends Component {
         return (
             <header>
                 <NavBar isOpen={isOpen} setIsOpen={this.setIsOpen}/>
-                <SideBar isOpen={isOpen} />
+                <SideBar isOpen={isOpen} setIsOpen={this.setIsOpen}/>
             </header>
         )
     }

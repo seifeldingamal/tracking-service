@@ -1,5 +1,4 @@
 $gray: #c9c9c9;
-$green: #34B620;
 
 .step-progress {
 
@@ -15,7 +14,7 @@ $green: #34B620;
         width: 4rem;
         background-color: #fff;
         color: #fff;
-        border: 1px solid #c9c9c9;
+        border: 1px solid $gray;
         border-radius: 50%;
         display: block;
         display: flex;

@@ -1,8 +1,11 @@
 .nav-bar {
+    position: relative;
+    padding-inline: calc((100vw - 74%) / 2);
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-height: 9rem;
+    background-color: #FFF;
     z-index: 99999;
 
     .nav-logo {

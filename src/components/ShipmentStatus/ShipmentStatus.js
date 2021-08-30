@@ -1,18 +1,23 @@
 import React from 'react'
 import './ShipmentStatus.scss'
 import ProgressBar from '../StepProgressBar/StepProgressBar'
+import { currentStep, days, months, stateColor, statesArabic } from '../../ults'
 
-const ShipmentStatus = () => {
+const ShipmentStatus = ({ currentStatus, promisedDate, tracking }) => {
+
+    const datePromised = new Date(promisedDate)
+    const date = new Date(currentStatus.timestamp)
+    
     return (
         <div className='ship-status'>
             <div className='info'>
                 <ul>
-                    <li>رقم الشحنة 6636234</li>
-                    <li>تم تسليم الأوردر</li>
+                    <li>{`رقم الشحنة ${tracking}`}</li>
+                    <li>{statesArabic[0][currentStatus.state]}</li>
                 </ul>
                 <ul>
                     <li>أخر تحديث</li>
-                    <li>Tuesday - 10/07/2018 at 10:46pm</li>
+                    <li>{`${days[date.getDay()]} ${months[date.getMonth()]} ${date.getFullYear()}`}</li>
                 </ul>
                 <ul>
                     <li>اسم التاجر</li>
@@ -20,10 +25,10 @@ const ShipmentStatus = () => {
                 </ul>
                 <ul>
                     <li>موعد التسليم خلال</li>
-                    <li>3 يناير 2020</li>
+                    <li>{!isNaN(datePromised.valueOf()) ? `${days[datePromised.getDay()]} ${months[datePromised.getMonth()]} ${datePromised.getFullYear()}` : 'لم يحدد بعد'}</li>
                 </ul>
             </div>
-            <ProgressBar currentStep={67} color={'#34B620'}/>
+            <ProgressBar currentStep={currentStep(currentStatus.state)} color={stateColor(currentStatus.state)} reason={currentStatus.reason}/>
         </div>
     )
 }

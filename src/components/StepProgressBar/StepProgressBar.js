@@ -4,14 +4,14 @@ import './StepProgressBar.scss'
 import { ProgressBar, Step } from 'react-step-progress-bar';
 import { FaTicketAlt, FaFileSignature, FaArchive, FaTruck } from 'react-icons/fa';
 
-const StepProgressBar = ({currentStep, color}) => {
+const StepProgressBar = ({ currentStep, color, reason }) => {
     return (
         <div className='step-progress'>
             <div className='progress'>
                 <ProgressBar
                     height={10}
                     percent={currentStep}
-                    filledBackground='#34B620'
+                    filledBackground={color}
                     unfilledBackground='#e9e9e9'
                 >
                     <Step 
@@ -64,7 +64,7 @@ const StepProgressBar = ({currentStep, color}) => {
                 <ul>
                     <li>تم إنشاء الشحنة</li>
                     <li>تم إستلام الشحنة من التاجر</li>
-                    <li>الشحنة خرجت للتسليم</li>
+                    <li>الشحنة خرجت للتسليم<br/>{ reason ? <p style={{color: color}}>{reason}</p> : ''}</li>
                     <li>تم التسليم</li>
                 </ul>
             </div>
